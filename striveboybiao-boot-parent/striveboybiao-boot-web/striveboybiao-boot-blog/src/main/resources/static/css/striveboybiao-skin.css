@@ -1,0 +1,41 @@
+/*CSS层叠样式列表 美化*/
+*{margin:0px;padding:0px}/*通配符  1.元素自带的默认边距  2.不同浏览器之间差异（兼容性）*/
+body{
+ /*   background:url("../images/img/1.jpg");!*背景 图片 颜色 路径*!
+    background-size:contain;!*背景大小的调整*!*/
+  /*  overflow:hidden;*/
+}
+.baidu{
+    width:100%;/*宽度*/
+    height:260px;/*高度 像素*/
+    background:rgba(0,0,0,.6);/*rgba CSS3 #66ffff 0-255 红色 绿色 蓝色*/
+    position:absolute;/*绝对定位*/
+    /*border:1px solid #ddd;边框*/
+    display:none;/*元素隐藏*/
+}
+.dimg_list{
+    width:1000px;
+    height:100px;
+    margin:50px auto;/*上下外边  auto左右外边距自动相等*/
+}
+.dimg_list ul li{
+    width:160px;
+    height:100px;
+    border:1px solid #fff;/*粗细  样式  边框颜色 */
+    list-style:none;/*去圆点 */
+    float:left;/*左浮动*/
+    margin-right:29px;
+    cursor:pointer;/*鼠标样式*/
+}
+.btn{
+    width:50px;
+    height:50px;
+    background:url("../images/img/upseek.png");
+    /*display:block;变成块级元素*/
+    position:absolute;/*如果行内元素设置浮动或者定位，那么这个元素会自动变成块级元素*/
+    top:0px;
+    right:0px;
+}
+.btn:hover{
+    background-position:0px -64px;/*背景的位置*/
+}

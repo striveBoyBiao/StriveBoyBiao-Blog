@@ -1,0 +1,74 @@
+server:
+  port: 8088
+  servlet:
+    session:
+      timeout: 1800
+spring:
+  application:
+    name: blog
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    #url: jdbc:mysql://localhost:3306/boke?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT
+    url: jdbc:mysql://101.200.46.91:3306/boke?useUnicode=true&characterEncoding=UTF-8
+    #url: jdbc:oracle:thin:@172.20.225.162:1521:orcl
+    username: root
+    password: gHDGq3wMnZxGmYpoNYq0GmRQn8wNmnWfD3bpwn5c4xnehIovfJTT1jDSCV3A6oxZmaB8r9ZwGvAeU6j4fKOoUw==
+    druid:
+      initial-size: 8
+      max-active: 64
+      min-idle: 8
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 100
+      validation-query: SELECT 'x' FROM DUAL
+      validation-query-timeout: 30000
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      max-evictable-idle-time-millis: 600000
+      connection-properties: config.decrypt=true;config.decrypt.key=${public-key}
+      filters: wall,slf4j,config
+      web-stat-filter:
+        enabled: false
+      stat-view-servlet:
+        enabled: false
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+    timeout: 3000
+    lettuce:
+      pool:
+        max-active: 500
+        min-idle: 4
+        max-idle: 32
+        max-wait: 1000
+  session:
+    store-type: redis
+    redis:
+      namespace: spring_session_blog
+  cache:
+    type: redis
+mybatis:
+  type-aliases-package: com.zizhuling.blog.*.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+    call-setters-on-nulls: true
+    default-statement-timeout: 60000
+    local-cache-scope: statement
+    use-generated-keys: true
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+  mapper-locations: classpath*:mapper/*.xml
+pagehelper:
+  reasonable: true
+  supportMethodsArguments: true
+  offset-as-page-num: true
+  row-bounds-with-count: true
+  page-size-zero: true
+
+
+
+# java -cp druid-1.0.16.jar com.alibaba.druid.filter.config.ConfigTools your_password
+public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKt/4YmZiH/8MoKeWMYvZY1j+a4NxS3+qw63KrYULEtimVpLzrReT23G5bUPgVNr6qhgS7HwNLw1yEbx44ECe38CAwEAAQ== #123456

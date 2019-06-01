@@ -1,0 +1,193 @@
+﻿<!doctype html>
+<html>
+<head>
+<title>何彪个人博客-一个开启你记录旅行的足迹和分享途中所见所闻，与探讨互联网神秘技术的网站</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="keywords"  content="" />
+<meta name="description" content="何彪个人博客" />
+<link href="/css/base.css" rel="stylesheet">
+<link href="/css/new.css" rel="stylesheet">
+</head>
+<body>
+
+<!--header-->
+<header>
+      <div id="logo"><a href="http://www.zizhuling.cn" title="何彪个人博客"><img src="/images/logo.png" width="260" height="100"></a></div>
+      <nav class="topnav" id="topnav">
+          <a href="/index" title="首页"><span>首页</span><span class="en"></span></a>
+          <a href="/about" title="关于我"><span>关于我</span><span class="en"></span></a>
+          <a href="/life" title="慢生活"><span>慢生活</span><span class="en"></span></a>
+          <a href="/doing" title="忙里偷闲"><span>忙里偷闲</span><span class="en"></span></a>
+          <a href="/learn" title="学无止境"><span>学无止境</span><span class="en"></span></a>
+          <a href="/photo" title="相册"><span>相册</span><span class="en"></span></a>
+          <a href="/music" title="在线音乐"><span>在线音乐</span><span class="en"></span></a>
+          <a href="/saying" title="留言板"><span>留言板</span><span class="en"></span></a>
+      </nav>
+</header>
+<!--header-->
+
+<article class="blogs" id="app-article">
+  <h1 class="t_nav">
+        <span>您当前的位置：<a href='/index'>首页</a> > <a v-bind:href="list.modulepath" >{{list.module}}</a>><a href='#'>{{list.typename}}</a> >
+        </span>
+        <a href="/index" class="n1">网站首页</a>
+        <a class="n2">{{list.typename}}</a>
+  </h1>
+  <div class="index_about">
+    <h2 class="c_titile">{{list.title}}</h2>
+    <p class="box_c">
+        <span class="d_time">发布时间：{{list.gtmmodified}}</span>
+        <span>编辑：{{list.author}}个人博客</span>
+        <span>互动QQ群：<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=7c7c3734906c9aed9ac7e12dc985be94420ca478cb8fd12b4188cafec5362b5e">792320700</a>
+        <span>浏览次数：{{list.reading}}</span>
+        </span>
+    </p>
+    
+    <ul class="infos" v-html="list.content">
+
+    </ul>
+    <ul class="pagelist">
+    
+    </ul>
+
+      <div class="otherlink">
+          <h2 style="color: red">您觉得喜欢本网站,或者觉得本文章对您有帮助，那么可以选择打赏。打赏多少，您高兴就行，谢谢您对我的支持！ ~(@^_^@)~</h2>
+          <img src="/images/img/qrcode.jpg" alt="" style="width: 200px;height: 200px;">
+      </div>
+    <div class="keybq">
+    	<p><span>关键字词</span>：{{list.gjzc}}</p>
+    </div>
+    
+    <div class="ad"> </div>
+    <div class="share">
+    	<h2></h2>  
+        <div class="bdsharebuttonbox">
+        <a title="分享到新浪微博" class="bds_tsina" href="/" data-cmd="tsina"></a>
+        <a title="分享到腾讯微博" class="bds_tqq" href="/" data-cmd="tqq"></a>
+        <a title="分享到QQ空间" class="bds_qzone" href="/" data-cmd="qzone"></a>
+        <a title="分享到微信" class="bds_weixin" href="/" data-cmd="weixin"></a>
+        <a title="分享到人人网" class="bds_renren" href="/" data-cmd="renren"></a>
+        <a class="bds_more" href="/" data-cmd="more"></a></div>
+        <p></p>
+	</div>
+    <div class="nextinfo">
+      <p>上一篇：<a  href="#" v-on:click="bindsrc(ondata.cid)"   v-bind:alt="ondata.title"  v-bind:title="ondata.title">{{ondata.title}}</a> </p>
+      <p>下一篇：<a  href="#" v-on:click="bindsrc(underdata.cid)" v-bind:alt="underdata.title" v-bind:title="underdata.title">{{underdata.title}}</a> </p>
+    </div>
+    <div class="otherlink">
+      <h2>相关文章</h2>
+      <ul>
+          <template v-for="data in relatedata">
+              <li>
+                  <a href="#"  v-on:click="bindsrc(data.cid)"  v-bind:alt="data.title" v-bind:title="data.title">{{data.title}}</a>
+              </li>
+          </template>
+      </ul>
+    </div>
+      <!--添加评论-->
+      <div class="tit01" style="width: 100%;clear: both;overflow: hidden; overflow-x: hidden; overflow-y: hidden;">
+          <h3>文章评论</h3>
+          <!--PC版-->
+          <div id="SOHUCS" sid="<#article/id#>" ></div>
+      </div>
+
+  </div>
+
+  <aside class="right">
+	<div class="tit01">
+      <h3>关注我</h3>
+      <div class="gzwm">
+        <ul>
+            <li><a class="xlwb" href="https://weibo.com/u/5863925408?refer_flag=1001030103_&is_all=1" target="_blank">新浪微博</a></li>
+            <li><a class="txwb" href="http://t.qq.com/HB1169763240" target="_blank">腾讯微博</a></li>
+            <li><a class="rss" href="https://www.inoreader.com/folder/Lifestyle" target="_blank">RSS</a></li>
+            <li><a class="wx" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=1169763240@qq.com" target="_blank">邮箱</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <!--时间-->
+    <div class="titm">
+    	<p>即将流逝的时光，请珍惜！</p>
+        <div width="260" height="90">
+            <iframe src="//player.bilibili.com/player.html?aid=32598422&cid=57042133&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+            <p><a href="/"><img src="" alt="" /></a></p>
+        </div>
+    </div>
+	
+    <div class="rnav">
+      <ul>
+            	<li class="rnav2"><a href="/life">大数据</a></li>
+            	<li class="rnav2"><a href="/life">区块链</a></li>
+            	<li class="rnav2"><a href="/life">人工智能</a></li>
+            	<li class="rnav2"><a href="/life">黑客</a></li>
+            	<li class="rnav2"><a href="/life">悠客</a></li>
+            	<li class="rnav2"><a href="/life">慢氧吧</a></li>
+
+              <li class="rnav2"><a href="/learn">心得笔记</a></li>
+              <li class="rnav2"><a href="/learn">JAVA</a></li>
+              <li class="rnav2"><a href="/learn">CSS3|Html5</a></li>
+              <li class="rnav2"><a href="/learn">C&C++</a></li>
+              <li class="rnav2"><a href="/learn">JS经典实例</a></li>
+              <li class="rnav2"><a href="/learn">推荐工具</a></li>
+     </ul>
+    </div>
+	<!--最新日志侧栏 列表-->
+	<div class="newbolg">
+        <h2><a href="/">最新日志</a></h2>
+        <ul class="rank">
+            <template v-for="data in newsdata">
+                <li>
+                    <a href="#"  v-on:click="bindsrc(data.cid)"  v-bind:alt="data.title" v-bind:title="data.title">{{data.title}}</a>
+                </li>
+            </template>
+        </ul>
+    </div>
+
+	<!--热评list-->
+	<div class="hotcomm">
+         <h2>热门评论</h2>
+         <ul>
+             <template v-for="data in rankdata">
+                 <li>
+                     <a  href="#" v-on:click="bindsrc(data.cid)"  v-bind:alt="data.title" v-bind:title="data.title">{{data.title}}</a>
+                 </li>
+             </template>
+         </ul>
+    </div>
+    
+  </aside>
+</article>
+
+<footer>
+  <p class="ft-copyright">何彪个人博客 Sunshine &nbsp;&nbsp;鄂ICP备18012534号</p>
+<div id="tbox"> <a id="togbook" href=""></a> <a id="gotop" href="javascript:void(0)"></a> </div>
+</footer>
+
+
+<!--[if lt IE 9]>
+<script src="/js/modernizr.js"></script>
+<![endif]-->
+
+<script type="text/javascript" src="/js/jquery-3.3.1.js"></script>
+
+<!-- 返回顶部调用 begin -->
+<script type="text/javascript" src="/js/js.js"></script>
+<!-- 返回顶部调用 end-->
+
+<!--畅言评论-->
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: 'cytKzYNfj',
+        conf: 'prod_07cc58b4a84c0ffab71eb1ca6cc6c9a4'
+    });
+</script>
+
+<script src="/js/vue.js"></script>
+<script src="/js/article.js"></script>
+<script color="255,0,0" opacity="0.7" zindex="-2" count="60" src="/js/canvas-nest.min.js"></script><canvas id="c_n6" width="2048" height="962" style="position: fixed; top: 0px; left: 0px; z-index: -2; opacity: 0.7;"></canvas>
+<!--双击文字特效-->
+<script src="/js/striveboybiao-text.js"></script>
+</body>
+</html>

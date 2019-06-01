@@ -1,0 +1,42 @@
+﻿/*时间样式*/
+/**widget_custom 用户自定义侧边栏容器**/
+.widget_custom {margin:0 auto 15px;}
+.widget_custom_content {margin:0 auto;padding:0;width:100%;}
+.widget_custom_300 {padding:20px 29px;overflow:hidden;}
+.widget_custom_310 {padding:20px 24px;overflow:hidden;}
+.widget_custom_320 {padding:20px 19px;overflow:hidden;}
+.widget_custom_330 {padding:15px 14px;overflow:hidden;}
+.widget_custom_340 {padding:10px 9px;overflow:hidden;}
+.widget_custom_350 {padding:5px 4px;overflow:hidden;}
+.widget_custom_360 {padding:0;overflow:hidden;}
+.widget_custom_notitle {border:none;}
+
+/**时钟**/
+.widget_custom_clock {position: relative;border:none;}
+.widget_clok {position: relative;padding:10px 0;}
+.widget_clok .fill {background-color: #fff;width:240px;height:340px;position: relative;border-radius: 50%;margin:0 auto;}
+.widget_clok .clock {position: absolute;opacity: 1;width:220px;height:340px;}
+.widget_clok .fill .clock {left: 0;top: 0;height:340px;}
+.widget_clok .centre {position: absolute;top: 50%;left: 50%;width: 0;height: 0;}
+.widget_clok .expand {position: absolute;top: 0;left: 0;transform: translate(-50%, -50%);}
+.widget_clok .anchor {position: absolute;top: 0;left: 0;width: 0;height: 0;}
+.widget_clok .element {position: absolute;top: 0;left: 0;}
+.widget_clok .round {border-radius: 296px;}
+.widget_clok .circle-1 {background: #2e3c49;width: 12px;height: 12px;}
+.widget_clok .circle-2 {background: #FA9F22;width: 8px;height: 8px;}
+.widget_clok .circle-3 {background: black;width: 4px;height: 4px;}
+.widget_clok .second {transform: rotate(180deg);}
+.widget_clok .minute {transform: rotate(54deg);}
+.widget_clok .second-hand {width: 2px;height: 164px;background: #FA9F22;transform: translate(-50%,-100%) translateY(24px);}
+.widget_clok .hour {transform: rotate(304.5deg);}
+.widget_clok .thin-hand {width: 4px;height: 50px;background: #293642;transform: translate(-50%,-100%);}
+.widget_clok .fat-hand {width: 10px;height: 57px;border-radius: 10px;background: #293642;transform: translate(-50%,-100%) translateY(-18px);}
+.widget_clok .minute-hand {height: 112px;}
+.widget_clok .hour-text {position: absolute;font: 40px Hei, Helvetica, Arial, sans-serif;color: #293642;transform: translate(-50%,-50%);}
+.widget_clok .hour-10 {padding-left: 0.4ex;}
+.widget_clok .hour-11 {padding-left: 0.25ex;}
+.widget_clok .minute-text {position: absolute;font: 12px Avenir Next, Helvetica, Arial, sans-serif;color: #293642;transform: translate(-50%,-50%);}
+.widget_clok .minute-line {background: #293642;width: 1px;height: 9px;transform: translate(-50%,-100%) translateY(-131px);opacity: 0.34;}
+
+
+

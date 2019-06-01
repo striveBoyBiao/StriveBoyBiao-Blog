@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zizhuling.blog.mapper.ContentMapper">
+    <!--分页查询忙里偷闲界面数据-->
+    <select id="findDoing" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
+        select bc.cid,
+        bc.content,
+        date_format(bc.gtm_create, '%Y-%m-%d') gtmcreate
+        from blog_content bc
+        where bc.categories='5' and bc.status=1
+        order by bc.gtm_create DESC
+        limit #{pagebegin},#{pagesize}
+    </select>
+    <!--查询忙里偷闲界面数据数量-->
+    <select id="queryCount" parameterType="Map" resultType="int">
+        select count(*)
+        from blog_content bc
+        where bc.categories='5' and bc.status=1
+    </select>
+
+
+
+
+
+    <!--查询首页,慢生活,学无止境 数据数量-->
+    <select id="queryLifeCount" parameterType="Map" resultType="int">
+        select count(*)
+        from blog_content
+        where 1=1 and  status=1
+        <if test="type==1">and categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
+        <if test="type==3">and categories in ('16','17','18','19','20','21')</if>
+        <if test="type==5">and categories in ('10','11','12','13','14','15')</if>
+        <if test="lmlb!=null and lmlb!=''">and categories=#{lmlb}</if>
+        <if test="search!=null and search!=''">and title like #{search} </if>
+    </select>
+    <!--分页查询首页,慢生活,学无止境 界面数据-->
+    <select id="findLife" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
+        select bc.cid,
+        bc.content,
+        date_format(bc.gtm_create, '%Y-%m-%d') gtmcreate,
+        date_format(bc.gtm_modified, '%Y-%m-%d') gtmmodified,
+        bc.title,
+        sd.name typename,
+        bc.author,
+        bc.introduction,
+        bc.title_picture titlepicture,
+        bc.comments_num commentsnum,
+        bc.reading
+        from blog_content bc
+        left join sys_dict sd on sd.type='blog_type' and sd.value=bc.categories
+        where 1=1 and  bc.status=1
+        <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
+        <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
+        <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
+        <if test="lmlb!=null and lmlb!=''">and  bc.categories=#{lmlb}</if>
+        <if test="search!=null and search!=''">and bc.title like #{search} </if>
+        order by bc.gtm_create DESC
+        limit #{pagebegin},#{pagesize}
+    </select>
+    <!--查询首页,慢生活,学无止境 最新文章-->
+    <select id="findLifeNewsData" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
+        select bc.cid,
+        bc.title
+        from blog_content bc
+        where 1=1 and bc.status=1
+        <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
+        <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
+        <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
+        order by bc.gtm_modified desc
+        limit #{news},#{newslength}
+    </select>
+    <!--查询首页,慢生活,学无止境 评论排行榜-->
+    <select id="findLifeRankData" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
+        select bc.cid,
+        bc.title
+        from blog_content bc
+        where 1=1 and bc.status=1
+        <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
+        <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
+        <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
+        order by bc.comments_num desc
+        limit #{rank},#{ranklength}
+    </select>
+    <!--查询首页,慢生活,学无止境 相关文章-->
+    <select id="findLifeRelateData" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
+        select bc.cid,
+        bc.title
+        from blog_content bc
+        where 1=1 and bc.status=1
+        <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
+        <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
+        <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
+        and bc.content like concat('%',#{gjzc},'%')
+        limit #{relate},#{relatelength}
+    </select>
+    <!--查询首页,标签，站长推荐文章-->
+    <select id="findRecommendData" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
+        select bc.cid,
+        bc.title
+        from blog_content bc
+        where 1=1 and bc.status=1
+        <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
+        <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
+        <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
+        order by bc.recommend desc
+        limit #{news},#{newslength}
+    </select>
+    <!--查询首页,标签，站长推荐文章-->
+    <select id="findReadingData" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
+        select bc.cid,
+                date_format(bc.gtm_create, '%Y-%m-%d') gtmcreate,
+                sd.name typename,
+                bc.title_picture titlepicture,
+                bc.title
+        from blog_content bc
+        left join sys_dict sd on sd.type='blog_type' and sd.value=bc.categories
+        where 1=1 and bc.status=1
+        <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
+        <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
+        <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
+        order by bc.reading desc
+        limit #{news},#{newslength}
+    </select>
+
+    <!--查询首页,慢生活,学无止境 详细界面数据-->
+    <select id="findlifeDetails" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
+        select bc.cid,
+        bc.content,
+        date_format(bc.gtm_create, '%Y-%m-%d') gtmcreate,
+        date_format(bc.gtm_modified, '%Y-%m-%d') gtmmodified,
+        bc.title,
+        sd.name typename,
+        bc.author,
+        bc.gjzc,
+        bc.reading,
+        bc.categories
+        from blog_content bc
+        left join sys_dict sd on sd.type='blog_type' and sd.value=bc.categories
+        where 1=1 and bc.status=1
+        <if test="cid!=null and cid!=''">and bc.cid=#{cid}</if>
+        <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
+        <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
+        <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
+    </select>
+
+
+
+    <!--查询上一篇-->
+    <select id="findLifeOnData" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
+        select bc.cid,
+        bc.title
+        from blog_content bc
+        where 1=1 and bc.status=1
+        <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
+        <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
+        <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
+        and #{cid}>bc.cid order by bc.cid desc limit 1 ;
+    </select>
+    <!--查询下一篇-->
+    <select id="findLifeUnderData" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
+        select bc.cid,
+        bc.title
+        from blog_content bc
+        where 1=1 and bc.status=1
+        <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
+        <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
+        <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
+        and bc.cid>#{cid} order by bc.cid asc limit 1 ;
+    </select>
+    <!--记录访问量-->
+    <update id="updateClickRate" parameterType="Map">
+        update blog_content set reading=reading+1 where cid=#{cid}
+    </update>
+    <!--查询相册数量-->
+    <select id="queryFilesCount" parameterType="Map" resultType="int">
+        select count(*)
+        from sys_file
+        where TYPE=0
+    </select>
+    <!--查询相册-->
+    <select id="queryFiles" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
+          SELECT id,type,url,date_format(create_date, '%Y-%m-%d')  createdate
+          FROM  sys_file
+          WHERE TYPE=0
+          order by create_date desc
+          limit #{pagebegin},#{pagesize}
+    </select>
+
+
+</mapper>

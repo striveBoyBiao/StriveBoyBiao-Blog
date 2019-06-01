@@ -1,0 +1,154 @@
+﻿<!doctype html>
+<html>
+<head>
+<title>忙里偷闲-何彪个人博客-一个开启你记录旅行的足迹和分享途中所见所闻，与探讨互联网神秘技术的网站</title>
+<meta name="keywords" content="何彪个人博客,分享旅行,喜欢在路上,旅游,慢生活,所见所闻,千奇百怪,何彪个人博客博客" />
+<meta name="description" content="一个关注旅行，在路上寻找那个丢失自我，远离城市的喧哗，放慢脚步去享受慢生活，分享在路上所见所闻，与大家一起发现这世界的千奇百怪！" />
+<link href="/css/base.css" rel="stylesheet">
+<link href="/css/mood.css" rel="stylesheet">
+<link href="/css/striveboybiao-skin.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<![endif]--><script src="/js/modernizr.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<!-- aiwke.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?ba0e885cd446efa2323e5ab6986951da";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+<div class="baidu"><!--id 与 class命名-->
+    <div class="dimg_list">
+        <ul>
+            <li>
+                <!--图片三要素 宽度 高 描述-->
+                <img src="/images/img/1.jpg" width='100%' height='100%' dataSrc="/images/img/1.jpg"/><!--插入图片-->
+            </li>
+            <li>
+                <img src="/images/img/2.jpg" width='100%' height='100%' dataSrc="/images/img/2.jpg"/>
+            </li>
+            <li>
+                <img src="/images/img/3.jpg" width='100%' height='100%' dataSrc="/images/img/3.jpg"/>
+            </li>
+            <li>
+                <img src="/images/img/4.jpg" width='100%' height='100%' dataSrc="/images/img/4.jpg"/>
+            </li>
+            <li>
+                <img src="/images/img/5.jpg" width='100%' height='100%' dataSrc="/images/img/5.jpg"/>
+            </li>
+            <li>
+                <img src="/images/img/6.jpg" width='100%' height='100%' dataSrc="/images/img/6.jpg"/>
+            </li>
+            <li>
+                <img src="/images/img/7.jpg" width='100%' height='100%' dataSrc="/images/img/7.jpg"/>
+            </li>
+            <li>
+                <img src="/images/img/8.jpg" width='100%' height='100%' dataSrc="/images/img/8.jpg"/>
+            </li>
+            <li>
+                <img src="/images/img/9.jpg" width='100%' height='100%' dataSrc="/images/img/9.jpg"/>
+            </li>
+            <li>
+                <img src="/images/img/10.jpg" width='100%' height='100%' dataSrc="/images/img/10.jpg"/>
+            </li>
+        </ul>
+    </div>
+</div>
+<a href="#" class="btn"></a><!--超链接 行内元素-->
+
+
+<!--header-->
+<header>
+      <div id="logo"><!--<a href="http://www.zizhuling.cn" title="何彪个人博客"><img src="/images/logo.png" width="260" height="100"></a>--></div>
+      <nav class="topnav" id="topnav">
+          <a href="/index" title="首页"><span>首页</span><span class="en"></span></a>
+          <a href="/about" title="关于我"><span>关于我</span><span class="en"></span></a>
+          <a href="/life" title="慢生活"><span>慢生活</span><span class="en"></span></a>
+          <a href="/doing" title="忙里偷闲"><span>忙里偷闲</span><span class="en"></span></a>
+          <a href="/learn" title="学无止境"><span>学无止境</span><span class="en"></span></a>
+          <a href="/photo" title="相册"><span>相册</span><span class="en"></span></a>
+          <a href="/music" title="在线音乐"><span>在线音乐</span><span class="en"></span></a>
+          <a href="/saying" title="留言板"><span>留言板</span><span class="en"></span></a>
+      </nav>
+</header>
+<!--header-->
+
+<div class="moodlist">
+  <h1 class="t_nav">
+  	<span>删删写写，回回忆忆，虽无法行云流水，却也可碎言碎语。</span>
+    <a href="/" title="网站首页" class="n1">网站首页</a>
+    <a href="/" title="忙里偷闲" class="n2">忙里偷闲</a>
+  </h1>
+  <div class="motto">
+      <p>有时候不是我不理你，其实我也想你了，只是我不知道该对你说什么。不管过去如何，过去的已经过去，最好的总在未来等着你。当我们懂得珍惜平凡的幸福的时候，就已经成了人生的赢家。<b>Nothing is as sweet as you</b> 再没什么，能甜蜜如你。我以为只要很认真的喜欢就能打动一个人，到后来，却只打动了我自己。</p>
+      <ul class="inbar">
+        <li><a target="_blank"><img src="/images/1434882856126573-lp.jpg"></a></li>
+        <li><a target="_blank"><img src="/images/1433940740595775.jpg"></a></li>
+        <li><a target="_blank"><img src="/images/1433940796115953.jpg"></a></li>
+      </ul>
+  </div>
+
+<div class="ccenter" id="app-doing">
+<div class="bloglist">
+      <!-blog2blog-doing v-for="data in dataList" v-bind:data="data" v-bind:key="data.cidblog2blog-doing>-->
+   <template v-for="data in dataList">
+		<ul class="arrow_box">
+                <div class="sy">
+                    <p v-html="data.content">
+                    </p>
+                </div>
+                <span class="dateview">{{data.gtmcreate}}</span>
+        </ul>
+   </template>
+
+    <div class="page" style='width: 600px;margin-left:30%;' id='footer'></div>
+  </div>
+ </div>
+
+ <div class="idea">
+    <p>
+        当我们懂得珍惜平凡的幸福的时候，就已经成了人生的赢家。Nothing is as sweet as you 再没什么，能甜蜜如你。我以为只要很认真的喜欢就能打动一个人，到后来，却只打动了我自己。
+    </p>
+</div>
+</div>
+<section class="visitors">
+	<div class="links">
+      	<h3><span>[<a href="http://wpa.qq.com/msgrd?v=3&uin=1169763240&site=qq&menu=yes" target="_blank">申请友情链接</a>]</span>友情链接</h3>
+      <ul>
+      <li class="yqlj">友情链接:</li>
+        <li><a href='http://www.zizhuling.cn' target='_blank'>何彪个人博客</a> </li>
+      </ul>
+    </div>
+</section>
+
+<footer>
+    <p class="ft-copyright">何彪个人博客 StriveBoyBiao &nbsp;&nbsp;鄂ICP备18012534号</p>
+    <div id="tbox"> <a id="togbook" href=""></a> <a id="gotop" href="javascript:void(0)"></a> </div>
+</footer>
+
+<!--显示标题亮色-->
+<script src="/js/silder.js"></script>
+
+<script type="text/javascript" src="/js/jquery-3.3.1.js"></script>
+
+<!-- 返回顶部调用 begin -->
+<script type="text/javascript" src="/js/js.js"></script>
+
+<script src="/js/vue.js" type="text/javascript"></script>
+<script src="/js/doing.js" type="text/javascript"></script>
+<script color="255,0,0" opacity="0.7" zindex="-2" count="60" src="/js/canvas-nest.min.js"></script><canvas id="c_n6" width="2048" height="962" style="position: fixed; top: 0px; left: 0px; z-index: -2; opacity: 0.7;"></canvas>
+<!--双击文字特效-->
+<script src="/js/striveboybiao-text.js"></script>
+<!--下雪特效-->
+<!--<script src="/js/striveboybiao-snow.js"></script>-->
+<script src="/js/striveboybiao-skin.js"></script>
+</body>
+</html>
