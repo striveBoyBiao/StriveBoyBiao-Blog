@@ -8,8 +8,8 @@ spring:
     name: blog
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    #url: jdbc:mysql://localhost:3306/boke?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT
-    url: jdbc:mysql://101.200.46.91:3306/boke?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/boke?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT
+    #url: jdbc:mysql://101.200.46.91:3306/boke?useUnicode=true&characterEncoding=UTF-8
     #url: jdbc:oracle:thin:@172.20.225.162:1521:orcl
     username: root
     password: gHDGq3wMnZxGmYpoNYq0GmRQn8wNmnWfD3bpwn5c4xnehIovfJTT1jDSCV3A6oxZmaB8r9ZwGvAeU6j4fKOoUw==
