@@ -1,0 +1,24 @@
+/*实现立体效果*/
+.img {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  transform-style: preserve-3d;
+  /*设置动画播放样式:动画对象 播放速度 时间 播放次数*/
+  animation: rotate linear 20s infinite;
+}
+/*实现动画效果*/
+@-webkit-keyframes rotate {                /*sofari chrome*/
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+/*图片样式*/
+.pic{
+  width: 200px;
+  height: 200px;
+  transform: rotateY(0deg) translateZ(100px);
+}
